@@ -301,7 +301,7 @@ export default function Contact() {
                   Office Location
                 </h4>
                 <p className="text-gray-600">
-                  Hyderabad, Telangana, India
+                  Pune, Maharashtra, India
                 </p>
               </div>
 
