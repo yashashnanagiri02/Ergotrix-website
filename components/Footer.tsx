@@ -51,8 +51,8 @@ export default function Footer() {
           <p>9 AM - 6 PM</p>
 
           <br />
-
-          <p>Hyderabad, Telangana</p>
+          <p>Office Location:</p>
+          <p>Pune, Maharashtra</p>
         </div>
       </div>
 

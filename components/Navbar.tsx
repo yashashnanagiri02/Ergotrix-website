@@ -2,20 +2,47 @@ import Image from "next/image";
 
 export default function Navbar() {
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow-sm">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        {/* Company Logo */}
+    <nav
+      className="
+      sticky
+      top-0
+      z-50
+      backdrop-blur-xl
+      bg-white/80
+      border-b
+      border-gray-200
+      "
+    >
+      <div
+        className="
+        max-w-7xl
+        mx-auto
+        flex
+        items-center
+        justify-between
+        px-6
+        py-4
+        "
+      >
         <Image
           src="/logo.png"
           alt="Ergotrix"
           width={350}
           height={90}
-          className="w-40 md:w-64 h-auto"
+          className="w-44 md:w-72 h-auto"
           priority
         />
 
-        {/* Navigation Links */}
-        <div className="hidden items-center gap-8 text-lg font-medium text-gray-700 lg:flex">
+        <div
+          className="
+          hidden
+          lg:flex
+          gap-10
+          text-lg
+          font-semibold
+          text-gray-700
+          "
+        >
           <a href="#about" className="hover:text-blue-900 transition">
             About
           </a>

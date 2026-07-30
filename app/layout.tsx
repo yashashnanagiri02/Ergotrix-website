@@ -1,9 +1,17 @@
 import "./globals.css";
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+
 export const metadata = {
   title: "ERGOTRIX Engineering Solutions Pvt Ltd",
   description:
-    "Engineering Excellence. Innovation Delivered. Innovative engineering and product development solutions.",
+    "Engineering Excellence. Innovation Delivered.",
 };
+
 export default function RootLayout({
   children,
 }: {
@@ -11,7 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={poppins.className}>
+        {children}
+      </body>
     </html>
   );
 }
