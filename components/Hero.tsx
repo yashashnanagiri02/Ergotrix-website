@@ -62,13 +62,7 @@ export default function Hero() {
                 Explore Services
               </a>
 
-              <a
-                href="/company-profile.pdf"
-                download
-                className="rounded-xl bg-slate-900 px-7 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-slate-800"
-              >
-                Company Profile
-              </a>
+              
 
             </div>
 
