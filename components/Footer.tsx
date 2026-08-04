@@ -28,19 +28,16 @@ export default function Footer() {
     <footer className="relative overflow-hidden bg-slate-950 text-white">
 
       {/* Background decoration */}
-
       <div className="pointer-events-none absolute -right-40 -top-40 h-96 w-96 rounded-full bg-blue-900/30 blur-3xl" />
 
       <div className="pointer-events-none absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-blue-800/20 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
 
-        {/* MAIN FOOTER */}
-
+        {/* Main footer */}
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_1fr_1.1fr]">
 
           {/* BRAND */}
-
           <div>
 
             <div className="flex items-center gap-3">
@@ -70,6 +67,7 @@ export default function Footer() {
             </p>
 
             <div className="mt-7 inline-flex rounded-xl border border-blue-500/20 bg-blue-500/10 px-4 py-3">
+
               <p className="text-sm font-semibold text-blue-300">
                 Engineering Excellence.
                 <br />
@@ -77,12 +75,12 @@ export default function Footer() {
                   Innovation Delivered.
                 </span>
               </p>
+
             </div>
 
           </div>
 
           {/* QUICK LINKS */}
-
           <div>
 
             <h3 className="text-sm font-bold uppercase tracking-[2px] text-white">
@@ -102,7 +100,7 @@ export default function Footer() {
 
                     <ArrowUpRight
                       size={13}
-                      className="opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100"
+                      className="opacity-0 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100"
                     />
 
                   </a>
@@ -115,7 +113,6 @@ export default function Footer() {
           </div>
 
           {/* SERVICES */}
-
           <div>
 
             <h3 className="text-sm font-bold uppercase tracking-[2px] text-white">
@@ -138,7 +135,6 @@ export default function Footer() {
           </div>
 
           {/* CONTACT */}
-
           <div>
 
             <h3 className="text-sm font-bold uppercase tracking-[2px] text-white">
@@ -150,7 +146,9 @@ export default function Footer() {
               {/* EMAIL */}
 
               <a
-                href="mailto:info@ergotrix.com"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=info@ergotrix.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group flex items-start gap-3"
               >
 
