@@ -147,7 +147,7 @@ export default function Footer() {
 
             <div className="mt-6 space-y-5">
 
-              {/* Email */}
+              {/* EMAIL */}
 
               <a
                 href="mailto:info@ergotrix.com"
@@ -160,6 +160,7 @@ export default function Footer() {
                 />
 
                 <div>
+
                   <p className="text-xs uppercase tracking-wider text-slate-500">
                     Email
                   </p>
@@ -167,11 +168,12 @@ export default function Footer() {
                   <p className="mt-1 text-sm text-slate-300 transition-colors group-hover:text-blue-400">
                     info@ergotrix.com
                   </p>
+
                 </div>
 
               </a>
 
-              {/* Location */}
+              {/* LOCATION */}
 
               <a
                 href="#location"
@@ -184,6 +186,7 @@ export default function Footer() {
                 />
 
                 <div>
+
                   <p className="text-xs uppercase tracking-wider text-slate-500">
                     Office
                   </p>
@@ -191,11 +194,12 @@ export default function Footer() {
                   <p className="mt-1 text-sm text-slate-300 transition-colors group-hover:text-blue-400">
                     Pune, Maharashtra, India
                   </p>
+
                 </div>
 
               </a>
 
-              {/* Hours */}
+              {/* BUSINESS HOURS */}
 
               <div className="flex items-start gap-3">
 
@@ -205,6 +209,7 @@ export default function Footer() {
                 />
 
                 <div>
+
                   <p className="text-xs uppercase tracking-wider text-slate-500">
                     Business Hours
                   </p>
@@ -216,6 +221,7 @@ export default function Footer() {
                   <p className="text-sm text-slate-400">
                     9:00 AM – 6:00 PM
                   </p>
+
                 </div>
 
               </div>
