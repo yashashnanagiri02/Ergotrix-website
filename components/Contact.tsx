@@ -1,6 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import {
+  Mail,
+  MapPin,
+  Clock3,
+  ArrowRight,
+  CheckCircle2,
+  MessageSquare,
+} from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -46,7 +54,7 @@ export default function Contact() {
       const data = await response.json();
 
       if (response.ok) {
-        setSuccess("Enquiry sent successfully!");
+        setSuccess("Your enquiry has been sent successfully!");
 
         setFormData({
           fullName: "",
@@ -57,7 +65,7 @@ export default function Contact() {
           message: "",
         });
       } else {
-        setError(data.message);
+        setError(data.message || "Unable to send your enquiry.");
       }
     } catch (err) {
       setError("Something went wrong. Please try again.");
@@ -69,252 +77,379 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="bg-slate-100 py-24 px-6"
+      className="relative overflow-hidden bg-slate-950 py-24 lg:py-32"
     >
-      <div className="max-w-7xl mx-auto">
+      {/* Background decoration */}
 
-        {/* Heading */}
+      <div className="pointer-events-none absolute -left-40 top-0 h-[500px] w-[500px] rounded-full bg-blue-900/40 blur-3xl" />
 
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-blue-900">
-            Contact Us
+      <div className="pointer-events-none absolute -bottom-40 right-0 h-[500px] w-[500px] rounded-full bg-blue-800/30 blur-3xl" />
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+
+        {/* HEADER */}
+
+        <div className="mx-auto max-w-4xl text-center">
+
+          <p className="text-sm font-semibold uppercase tracking-[4px] text-blue-400">
+            Contact Ergotrix
+          </p>
+
+          <h2 className="mt-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+            Let's Build Something
+            <span className="block text-blue-400">
+              Exceptional Together
+            </span>
           </h2>
 
-          <p className="text-gray-600 mt-4 text-lg">
-            Let's build something amazing together.
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+            Have a product idea, engineering challenge or manufacturing
+            requirement? Tell us about your project and our team will
+            get back to you.
           </p>
+
         </div>
 
-        {/* Main Grid */}
+        {/* MAIN GRID */}
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="mt-16 grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
 
-          {/* LEFT SIDE */}
+          {/* FORM */}
 
-          <div className="bg-white p-8 rounded-3xl shadow-lg">
+          <div className="rounded-[32px] border border-slate-200 bg-white p-7 shadow-2xl sm:p-10">
 
-            <h3 className="text-3xl font-semibold text-blue-900 mb-8">
-              Send an Enquiry
-            </h3>
+            <div className="mb-8 flex items-center gap-4">
+
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50">
+                <MessageSquare
+                  size={24}
+                  className="text-blue-700"
+                />
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-bold text-slate-950">
+                  Send an Enquiry
+                </h3>
+
+                <p className="mt-1 text-sm text-slate-500">
+                  Tell us what you are looking to build.
+                </p>
+              </div>
+
+            </div>
 
             <form
-              className="space-y-6"
+              className="space-y-5"
               onSubmit={handleSubmit}
             >
 
-              <input
-                type="text"
-                name="fullName"
-                value={formData.fullName}
-                onChange={handleChange}
-                placeholder="Full Name"
-                className="
-                w-full
-                p-4
-                rounded-xl
-                border
-                border-gray-300
-                text-black
-                placeholder:text-gray-500
-                focus:outline-none
-                focus:ring-2
-                focus:ring-blue-900
-                "
-                required
-              />
+              {/* Name + Company */}
 
-              <input
-                type="text"
-                name="companyName"
-                value={formData.companyName}
-                onChange={handleChange}
-                placeholder="Company Name"
-                className="
-                w-full
-                p-4
-                rounded-xl
-                border
-                border-gray-300
-                text-black
-                placeholder:text-gray-500
-                focus:outline-none
-                focus:ring-2
-                focus:ring-blue-900
-                "
-              />
+              <div className="grid gap-5 sm:grid-cols-2">
 
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Email Address"
-                className="
-                w-full
-                p-4
-                rounded-xl
-                border
-                border-gray-300
-                text-black
-                placeholder:text-gray-500
-                focus:outline-none
-                focus:ring-2
-                focus:ring-blue-900
-                "
-                required
-              />
+                <div>
+                  <label
+                    htmlFor="fullName"
+                    className="mb-2 block text-sm font-semibold text-slate-700"
+                  >
+                    Full Name
+                  </label>
 
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="Phone Number"
-                className="
-                w-full
-                p-4
-                rounded-xl
-                border
-                border-gray-300
-                text-black
-                placeholder:text-gray-500
-                focus:outline-none
-                focus:ring-2
-                focus:ring-blue-900
-                "
-                required
-              />
+                  <input
+                    id="fullName"
+                    type="text"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    placeholder="Your name"
+                    className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3.5 text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100"
+                    required
+                  />
+                </div>
 
-              <input
-                type="text"
-                name="service"
-                value={formData.service}
-                onChange={handleChange}
-                placeholder="Required Service"
-                className="
-                w-full
-                p-4
-                rounded-xl
-                border
-                border-gray-300
-                text-black
-                placeholder:text-gray-500
-                focus:outline-none
-                focus:ring-2
-                focus:ring-blue-900
-                "
-              />
+                <div>
+                  <label
+                    htmlFor="companyName"
+                    className="mb-2 block text-sm font-semibold text-slate-700"
+                  >
+                    Company Name
+                  </label>
 
-              <textarea
-                rows={5}
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Tell us about your project requirements..."
-                className="
-                w-full
-                p-4
-                rounded-xl
-                border
-                border-gray-300
-                text-black
-                placeholder:text-gray-500
-                focus:outline-none
-                focus:ring-2
-                focus:ring-blue-900
-                "
-                required
-              />
+                  <input
+                    id="companyName"
+                    type="text"
+                    name="companyName"
+                    value={formData.companyName}
+                    onChange={handleChange}
+                    placeholder="Your company"
+                    className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3.5 text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100"
+                  />
+                </div>
+
+              </div>
+
+              {/* Email + Phone */}
+
+              <div className="grid gap-5 sm:grid-cols-2">
+
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="mb-2 block text-sm font-semibold text-slate-700"
+                  >
+                    Email Address
+                  </label>
+
+                  <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="you@company.com"
+                    className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3.5 text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="phone"
+                    className="mb-2 block text-sm font-semibold text-slate-700"
+                  >
+                    Phone Number
+                  </label>
+
+                  <input
+                    id="phone"
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="+91 XXXXX XXXXX"
+                    className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3.5 text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100"
+                    required
+                  />
+                </div>
+
+              </div>
+
+              {/* Service */}
+
+              <div>
+                <label
+                  htmlFor="service"
+                  className="mb-2 block text-sm font-semibold text-slate-700"
+                >
+                  Required Service
+                </label>
+
+                <input
+                  id="service"
+                  type="text"
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  placeholder="e.g. Product Design, CAD Engineering, Automotive Seating"
+                  className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3.5 text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100"
+                />
+              </div>
+
+              {/* Message */}
+
+              <div>
+                <label
+                  htmlFor="message"
+                  className="mb-2 block text-sm font-semibold text-slate-700"
+                >
+                  Project Requirements
+                </label>
+
+                <textarea
+                  id="message"
+                  rows={6}
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Tell us about your project, requirements or engineering challenge..."
+                  className="w-full resize-none rounded-xl border border-slate-300 bg-slate-50 px-4 py-3.5 text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100"
+                  required
+                />
+              </div>
+
+              {/* Submit */}
 
               <button
                 type="submit"
                 disabled={loading}
-                className="
-                bg-blue-900
-                text-white
-                px-8
-                py-4
-                rounded-xl
-                font-semibold
-                hover:bg-blue-800
-                transition-all
-                duration-300
-                disabled:opacity-70
-                "
+                className="group inline-flex w-full items-center justify-center gap-3 rounded-xl bg-blue-700 px-7 py-4 font-semibold text-white shadow-lg shadow-blue-700/20 transition-all duration-300 hover:-translate-y-1 hover:bg-blue-800 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {loading ? "Sending..." : "Send Enquiry"}
+                {loading ? "Sending Enquiry..." : "Send Enquiry"}
+
+                {!loading && (
+                  <ArrowRight
+                    size={19}
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                )}
               </button>
 
+              {/* Success */}
+
               {success && (
-                <p className="text-green-600 font-medium">
+                <div className="flex items-center gap-3 rounded-xl border border-green-200 bg-green-50 p-4 text-sm font-medium text-green-700">
+                  <CheckCircle2 size={20} />
                   {success}
-                </p>
+                </div>
               )}
 
+              {/* Error */}
+
               {error && (
-                <p className="text-red-600 font-medium">
+                <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm font-medium text-red-600">
                   {error}
-                </p>
+                </div>
               )}
 
             </form>
-
           </div>
 
-          {/* RIGHT SIDE */}
+          {/* CONTACT INFORMATION */}
 
-          <div className="bg-white p-8 rounded-3xl shadow-lg">
+          <div className="flex flex-col gap-6">
 
-            <h3 className="text-3xl font-semibold text-blue-900 mb-6">
-              ERGOTRIX Engineering Solutions Pvt Ltd
-            </h3>
+            {/* Company Card */}
 
-            <p className="text-gray-600 text-lg mb-8">
-              Engineering Excellence. Innovation Delivered.
-            </p>
+            <div className="rounded-[32px] border border-white/10 bg-white/5 p-8 backdrop-blur-sm sm:p-10">
 
-            <div className="space-y-6">
+              <p className="text-sm font-semibold uppercase tracking-[3px] text-blue-400">
+                ERGOTRIX
+              </p>
 
-              <div>
-                <h4 className="font-bold text-blue-900">
-                  Business Hours
-                </h4>
-                <p className="text-gray-600">
-                  Monday - Saturday
-                </p>
-                <p className="text-gray-600">
-                  9 AM - 6 PM
-                </p>
+              <h3 className="mt-3 text-3xl font-bold text-white">
+                Engineering Solutions
+              </h3>
+
+              <p className="mt-5 leading-8 text-slate-300">
+                Engineering Excellence. Innovation Delivered.
+              </p>
+
+              <p className="mt-5 leading-7 text-slate-400">
+                Connect with our team to discuss product development,
+                CAD engineering, automotive seating, manufacturing
+                support or your next engineering challenge.
+              </p>
+
+            </div>
+
+            {/* Contact Cards */}
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+
+              {/* Email */}
+
+              <a
+                href="mailto:info@ergotrix.com"
+                className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:border-blue-500/50 hover:bg-white/10"
+              >
+
+                <div className="flex items-start gap-4">
+
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-600/20">
+                    <Mail
+                      size={21}
+                      className="text-blue-400"
+                    />
+                  </div>
+
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-wider text-slate-400">
+                      Email
+                    </p>
+
+                    <p className="mt-1 font-semibold text-white group-hover:text-blue-300">
+                      info@ergotrix.com
+                    </p>
+                  </div>
+
+                </div>
+
+              </a>
+
+              {/* Location */}
+
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+
+                <div className="flex items-start gap-4">
+
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-600/20">
+                    <MapPin
+                      size={21}
+                      className="text-blue-400"
+                    />
+                  </div>
+
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-wider text-slate-400">
+                      Office
+                    </p>
+
+                    <p className="mt-1 font-semibold text-white">
+                      Pune, Maharashtra, India
+                    </p>
+                  </div>
+
+                </div>
+
               </div>
 
-              <div>
-                <h4 className="font-bold text-blue-900">
-                  Email Address
-                </h4>
-                <p className="text-gray-600">
-                  info@ergotrix.com
-                </p>
+              {/* Hours */}
+
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+
+                <div className="flex items-start gap-4">
+
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-600/20">
+                    <Clock3
+                      size={21}
+                      className="text-blue-400"
+                    />
+                  </div>
+
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-wider text-slate-400">
+                      Business Hours
+                    </p>
+
+                    <p className="mt-1 font-semibold text-white">
+                      Monday – Saturday
+                    </p>
+
+                    <p className="mt-1 text-sm text-slate-400">
+                      9:00 AM – 6:00 PM
+                    </p>
+                  </div>
+
+                </div>
+
               </div>
 
-              <div>
-                <h4 className="font-bold text-blue-900">
-                  Office Location
-                </h4>
-                <p className="text-gray-600">
-                  Pune, Maharashtra, India
-                </p>
-              </div>
+            </div>
 
-              <div>
-                <h4 className="font-bold text-blue-900">
-                  Our Promise
-                </h4>
-                <p className="text-gray-600 leading-8">
-                  We are committed to delivering innovative,
-                  manufacturing-ready engineering solutions
-                  tailored to your business requirements.
-                </p>
-              </div>
+            {/* Promise */}
+
+            <div className="rounded-2xl border border-blue-500/20 bg-blue-600/10 p-6">
+
+              <p className="text-sm font-semibold uppercase tracking-[2px] text-blue-400">
+                Our Promise
+              </p>
+
+              <p className="mt-3 leading-7 text-slate-300">
+                We are committed to delivering innovative,
+                manufacturing-ready engineering solutions tailored
+                to your business requirements.
+              </p>
 
             </div>
 
