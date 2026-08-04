@@ -31,31 +31,67 @@ export async function POST(request: Request) {
 
     await transporter.sendMail({
       from: `"ERGOTRIX Website" <${process.env.EMAIL_USER}>`,
-      to: "yashashnanagiri02@gmail.com",
+
+      // COMPANY EMAIL
+      to: "info@ergotrix.com",
+
       subject: "New Enquiry from ERGOTRIX Website",
 
       html: `
-        <h2>New Enquiry Received</h2>
+        <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #222;">
 
-        <p><strong>Full Name:</strong> ${fullName}</p>
+          <h2 style="color: #1e3a8a;">
+            New Enquiry Received
+          </h2>
 
-        <p><strong>Company Name:</strong> ${companyName}</p>
+          <hr />
 
-        <p><strong>Email Address:</strong> ${email}</p>
+          <p>
+            <strong>Full Name:</strong><br />
+            ${fullName}
+          </p>
 
-        <p><strong>Phone Number:</strong> ${phone}</p>
+          <p>
+            <strong>Company Name:</strong><br />
+            ${companyName || "Not provided"}
+          </p>
 
-        <p><strong>Required Service:</strong> ${service}</p>
+          <p>
+            <strong>Email Address:</strong><br />
+            ${email}
+          </p>
 
-        <p><strong>Project Requirements:</strong></p>
+          <p>
+            <strong>Phone Number:</strong><br />
+            ${phone}
+          </p>
 
-        <p>${message}</p>
+          <p>
+            <strong>Required Service:</strong><br />
+            ${service || "Not specified"}
+          </p>
 
-        <hr/>
+          <p>
+            <strong>Project Requirements:</strong>
+          </p>
 
-        <p>
-        Sent automatically from the ERGOTRIX Engineering Solutions website.
-        </p>
+          <div
+            style="
+              background: #f1f5f9;
+              padding: 15px;
+              border-radius: 8px;
+            "
+          >
+            ${message}
+          </div>
+
+          <hr />
+
+          <p style="color: #64748b; font-size: 13px;">
+            Sent automatically from the ERGOTRIX Engineering Solutions website.
+          </p>
+
+        </div>
       `,
     });
 
@@ -65,6 +101,7 @@ export async function POST(request: Request) {
       { message: "Enquiry sent successfully!" },
       { status: 200 }
     );
+
   } catch (error) {
     console.error("EMAIL ERROR:", error);
 
