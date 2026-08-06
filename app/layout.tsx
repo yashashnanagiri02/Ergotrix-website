@@ -10,12 +10,6 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "ERGOTRIX Engineering Solutions Pvt Ltd",
   description: "Engineering Excellence. Innovation Delivered.",
-
-  icons: {
-    icon: "/images/ergotrix-logo.png",
-    shortcut: "/images/ergotrix-logo.png",
-    apple: "/images/ergotrix-logo.png",
-  },
 };
 
 export default function RootLayout({
