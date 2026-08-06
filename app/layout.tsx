@@ -11,7 +11,12 @@ export const metadata: Metadata = {
   title: "ERGOTRIX Engineering Solutions Pvt Ltd",
   description: "Engineering Excellence. Innovation Delivered.",
   icons: {
-    icon: "/ergotrix-favicon.png",
+    icon: [
+      {
+        url: "/ergotrix-favicon.png",
+        type: "image/png",
+      },
+    ],
     shortcut: "/ergotrix-favicon.png",
     apple: "/ergotrix-favicon.png",
   },
@@ -23,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body className={poppins.className}>
         {children}
       </body>
